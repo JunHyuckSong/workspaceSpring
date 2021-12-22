@@ -5053,3 +5053,9 @@ java.lang.NoClassDefFoundError: javax/annotation/PostConstruct
 
 !ENTRY org.eclipse.m2e.logback.appender 2 0 2021-12-22 20:24:04.292
 !MESSAGE Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2021-12-22 22:57:11.129
+!MESSAGE Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2021-12-22 22:57:11.138
+!MESSAGE Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
