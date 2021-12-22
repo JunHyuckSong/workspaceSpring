@@ -1,0 +1,54 @@
+package test;
+
+import org.springframework.stereotype.Component;
+
+@Component() // == <bean>등록과 같은 설정 : IPhone iPhone = new IPhone();
+public class IPhone implements Phone{
+	private Watch watch;
+	private String uname;
+	public IPhone() {
+		System.out.println("아이폰 생성자1");
+	}
+	
+	/*public IPhone(Watch watch,String uname) {
+		System.out.println("아이폰 생성자2");
+		this.watch = watch;
+		this.uname = uname;
+		System.out.println(this.uname);
+	}*/
+	
+	
+	public void volumeUp() {
+		watch.volumeUp();
+	}
+	public Watch getWatch() {
+		return watch;
+	}
+
+	public void setWatch(Watch watch) {
+		this.watch = watch;
+	}
+
+	public String getUname() {
+		return uname;
+	}
+
+	public void setUname(String uname) {
+		this.uname = uname;
+	}
+
+	public void volumeDown() {
+		watch.volumeDown();
+	}
+	public void msg() {
+		System.out.println("아이폰 문자보내기");
+	}
+	public void initMethod() {
+		//아이폰을 초기화할 떄 처리할 작업이 들어가는 메서드
+		System.out.println("아이폰을 초기화할 떄 처리할 작업이 들어가는 메서드");
+	}
+	public void destroyMethod() {
+		//아이폰을 삭제할 떄 처리할 작업이 들어가는 메서드
+		System.out.println("아이폰객체 삭제될 떄 처리할 작업이 들어가는 메서드");
+	}
+}

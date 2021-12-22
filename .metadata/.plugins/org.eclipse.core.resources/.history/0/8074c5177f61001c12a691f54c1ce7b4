@@ -1,0 +1,16 @@
+package test;
+
+import java.util.List;
+
+public class CollectionTest {
+	private List<String> memo;
+
+	public List<String> getMemo() {
+		return memo;
+	}
+
+	public void setMemo(List<String> memo) {
+		this.memo = memo;
+	} 
+	
+}

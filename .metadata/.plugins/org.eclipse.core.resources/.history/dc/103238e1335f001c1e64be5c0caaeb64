@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+	
+	<!-- <bean class="test.IPhone" id="iPhone" init-method="initMethod" destroy-method="destroyMethod"/> -->
+	<bean class="test.IPhone" id="iPhone">
+		<constructor-arg ref="smartWatch"/>
+		<constructor-arg value = "아무무"/>
+	</bean>
+	<bean class="test.AppleWatch" id="appleWatch"/>
+	<bean class="test.SmartWatch" id="smartWatch"/>
+	<bean class="test.Galaxy" id="galaxyPhone" lazy-init="true" scope="prototype"/>
+
+</beans>

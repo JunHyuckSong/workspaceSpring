@@ -1,0 +1,31 @@
+package test;
+
+import org.springframework.context.support.AbstractApplicationContext;
+import org.springframework.context.support.GenericXmlApplicationContext;
+
+public class Client {
+	public static void main(String[] args) {
+		/*BeanFactory factory = new BeanFactory();
+		Phone phone = (Phone)factory.getBean(args[0]);
+		phone.volumeUp();
+		phone.msg();
+		 */
+		
+		AbstractApplicationContext factory = new GenericXmlApplicationContext("applicationContext.xml");
+		/*Phone phone = (Phone)factory.getBean("iPhone");
+		phone.volumeUp();
+		phone.volumeDown();
+		phone.msg();*/
+		
+		Phone p1 = (Phone)factory.getBean("galaxyPhone"); //갤럭시 생성자
+		Phone p2 = (Phone)factory.getBean("galaxyPhone"); //갤럭시 생성자
+		Phone p3 = (Phone)factory.getBean("galaxyPhone"); //갤럭시 생성자   하나가 아닌 3개의 생성자가 실행됨.
+		
+		/*IPhone p4 = (IPhone)factory.getBean("iPhone");
+		System.out.println(p4.getUname());*/
+		
+		factory.close();
+	}
+}
+//코드의 핵심!!
+//결합도 낮추기.
