@@ -16,7 +16,7 @@ public class MemberClient {
 	      vo.setPassword("1234");
 	      MemberVO data = ms.selectOne(vo);
 	      if(data==null) {
-	    	  System.out.println("로그인 실해");
+	    	  System.out.println("로그인 실패");
 	      }
 	      else{
 	    	  System.out.println("로그인 성공 " + data.getMid() + "님 반갑습니다.");
