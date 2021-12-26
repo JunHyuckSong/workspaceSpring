@@ -16,7 +16,20 @@ import com.test.app.member.impl.MemberDAO;
  */
 public class DispatcherServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
+     
+	private HandlerMapping handlerMapping;
+	private ViewResolver viewResolver;
+	
+	public void init() { // 초기화 메서드
+		//************************************************
+		//		추후에 .xml에 initMethod로 불러내기 가능(bean이나 annotation으로 수정될 에정)
+		//************************************************
+		handlerMapping = new HandlerMapping();
+		viewResolver = new ViewResolver();
+		viewResolver.setPrefix("./");
+		viewResolver.setSuffix(".jsp");
+	}
+	
     /**
      * @see HttpServlet#HttpServlet()
      */
@@ -42,33 +55,18 @@ public class DispatcherServlet extends HttpServlet {
 	private void doAction(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
 		String uri = request.getRequestURI();
 		System.out.println(uri);
-		String action = uri.substring(uri.lastIndexOf("/"));
+		String action = uri.substring(uri.lastIndexOf("/")); //		1. action을 request로부터 받늗다.
 		
-		ActionForward forward = null;
-		if(action.equals("/login.do")) {
-			MemberVO vo = new MemberVO();
-			vo.setMid(request.getParameter("mid"));
-			vo.setPassword(request.getParameter("password"));
-			
-			MemberDAO dao = new MemberDAO();
-			MemberVO data = dao.selectOne(vo);
-			if(data!=null) {
-				//세션에 저장한 후
-				//main.jsp
-				response.sendRedirect("main.jsp");
-			}
-			else {
-				//login.jsp
-				response.sendRedirect("login.jsp");
-			}
-			
-			
+		Controller ctrl = handlerMapping.getController(action); //	2. action을 실행시켜줄 "Controller객체"를 HashMap에서 찾는다.
+		String viewName = ctrl.handleRequest(request, response); // 3. 해당 "Controller객체"에서 "요청처리"를 진행 후 경로를 반환
+		//바로 .do 요청을 수행
+		//혹은 viewName 앞뒤로 접사 붙여주기
+		if (!viewName.contains(".do")) {			
+			viewResolver.getView(viewName); // viewName에 prefix와 suffix를 붙여주기
 		}
-		else if(action.equals("/logout.do")) {
-			HttpSession session = request.getSession();
-			session.invalidate();
-			response.sendRedirect("login.jsp");
-		}
+		
+		
+		response.sendRedirect(viewName);
 				
 	}
 

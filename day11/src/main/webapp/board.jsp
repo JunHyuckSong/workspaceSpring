@@ -8,9 +8,9 @@
 </head>
 <body>
 	<h1>상세 페이지</h1>
-	<a href="main.jsp">메인 페이지로 이동하기</a>
+	<a href="main.do">메인 페이지로 이동하기</a>
 	<hr>
-	<form action="updateBoard_C.jsp" method="post">
+	<form action="updateBoard.do" method="post">
 		<table border="1">
 			<tr>
 				<td>글 제목</td>
@@ -38,6 +38,6 @@
 		</table>
 	</form>
 	<hr>
-	<a href="deleteBoard_C.jsp?bid=${data.bid}">글 삭제하기</a>
+	<a href="deleteBoard.do?bid=${data.bid}">글 삭제하기</a>
 </body>
 </html>

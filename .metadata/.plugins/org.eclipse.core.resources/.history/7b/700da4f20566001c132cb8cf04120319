@@ -1,0 +1,22 @@
+package com.test.app.controller;
+
+import java.util.HashMap;
+import java.util.Map;
+
+import com.test.app.member.LoginController;
+
+//사용자의 요청을 보고 Controller객체를 검색해준다!!!!! --> DispatcherServlet.java에서 if(action.equals("/login.do"))를 담당하는 Part
+// ***************************************
+//	결론적으로 HandlerMapping은 Controller파트이다. 
+// ***************************************
+public class HandlerMapping {
+	private Map<String, Controller> mappings;
+	
+	public HandlerMapping() {
+		//기본 생성자
+		mappings = new HashMap<String, Controller>();
+		mappings.put("/login.do", new LoginController()); // 비즈니스 메서드 수만큼 만들어주어야 한다.
+		
+	}
+	
+}

@@ -9,7 +9,8 @@ import com.test.app.member.MemberVO;
 @Service("memberService")
 public class MemberServiceImpl implements MemberService{
 	@Autowired
-	private MemberDAO memberDAO;
+	private MemberDAO memberDAO;// dao를 사용하기 위한 "맴버변수" 선언
+	
 	
 	public MemberDAO getMemberDAO() {
 		return memberDAO;

@@ -1,0 +1,7 @@
+package com.test.app.controller;
+
+
+//사용자의 요청을 보고 Controller객체를 검색해준다!!!!!
+public class HandlerMapping {
+
+}

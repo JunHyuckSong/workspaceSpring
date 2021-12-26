@@ -12,7 +12,8 @@ import javax.servlet.ServletResponse;
  * Servlet Filter implementation class EncFilter
  */
 public class EncFilter implements Filter {
-
+	
+	private String encoding;
     /**
      * Default constructor. 
      */
@@ -33,7 +34,7 @@ public class EncFilter implements Filter {
 	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
 		// TODO Auto-generated method stub
 		// place your code here
-
+		request.setCharacterEncoding(encoding);
 		// pass the request along the filter chain
 		chain.doFilter(request, response);
 	}
@@ -43,6 +44,7 @@ public class EncFilter implements Filter {
 	 */
 	public void init(FilterConfig fConfig) throws ServletException {
 		// TODO Auto-generated method stub
+		encoding = fConfig.getServletContext().getInitParameter("encoding");
 	}
 
 }

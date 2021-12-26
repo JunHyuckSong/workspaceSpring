@@ -1,0 +1,22 @@
+package com.test.app.board;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import com.test.app.board.impl.BoardDAO;
+import com.test.app.controller.Controller;
+
+public class BoardController implements Controller{
+
+	@Override
+	public String handleRequest(HttpServletRequest request, HttpServletResponse response) {
+		BoardVO vo = new BoardVO();
+		vo.setBid(Integer.parseInt(request.getParameter("bid")));
+		
+		BoardDAO dao = new BoardDAO();
+		dao.selectOne(vo);
+		
+		return null;
+	}
+
+}

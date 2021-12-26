@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
     pageEncoding="EUC-KR"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -8,9 +9,9 @@
 </head>
 <body>
 	<h1>게시글 목록</h1>
-	<a href="logout_C.jsp">로그아웃</a>
+	<a href="logout.do">로그아웃</a>
 	
-	<form action="main.jsp" method="post">
+	<form action="main.do" method="post">
 		<table border="1">
 			<tr>
 				<td>
@@ -36,7 +37,15 @@
 			<th>작성일</th>
 			<th>조회수</th>
 		</tr>
-		<a href="board.jsp?bid=${v.bid}">${v.bid}</a>
+		<c:forEach items="${datas}" var="v">
+			<tr>			
+				<td><a href="board.do?bid=${v.bid}">${v.bid}</a></td>
+				<td>${v.title}</td>
+				<td>${v.writer}</td>
+				<td>${v.bdate}</td>
+				<td>${v.cnt}</td>
+			</tr>
+		</c:forEach>
 	</table>	
 	<hr>
 	
