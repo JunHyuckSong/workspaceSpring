@@ -1,0 +1,5 @@
+package com.test.app.board;
+
+public class InsertBoardController {
+
+}

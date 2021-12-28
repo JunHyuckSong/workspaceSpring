@@ -1,7 +1,0 @@
-package com.test.app.board.impl;
-
-import com.test.app.board.BoardService;
-
-public class BoardServiceImpl implements BoardService {
-
-}

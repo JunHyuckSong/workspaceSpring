@@ -34,13 +34,17 @@ public class Client {
 		 */
 		
 		
-		/*CollectionTest ct = (CollectionTest)factory.getBean("ct");
-		Map<String,String> datas = ct.getMembers();
-		for (String key : datas.keySet()) {
+		CollectionTest ct = (CollectionTest)factory.getBean("ct");
+		//Map<String,String> datas = ct.getMembers();
+		//List<String> datas = ct.getMemo();
+		Set<String> datas = ct.getNameSet();
+		/*for (String key : datas.keySet()) {
 			System.out.println(key);
 			System.out.println(datas.get(key));
 		}*/
-		
+		for (String data : datas) {
+			System.out.println(data); // "바이"가 중복되므로 하나밖에 출력되지 않음
+		}
 		
 		
 		factory.close();

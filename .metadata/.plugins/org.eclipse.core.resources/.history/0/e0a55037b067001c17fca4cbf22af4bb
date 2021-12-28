@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.2.xsd">
+	
+	<!-- <bean class="test.IPhone" id="iPhone" init-method="initMethod" destroy-method="destroyMethod"/> -->
+	<!-- <bean class="test.IPhone" id="iPhone">
+		<property name="watch" ref="appleWatch"></property>
+		<property name="uname" value="티모"></property>
+	</bean>
+	<bean class="test.IPhone" id="iPhone" p:watch-ref="smartWatch" p:uname="홍길동"/>
+	<bean class="test.AppleWatch" id="appleWatch"/>
+	<bean class="test.SmartWatch" id="smartWatch"/>
+	<bean class="test.Galaxy" id="galaxyPhone" lazy-init="true" scope="prototype"/>
+	<bean class="test.CollectionTest" id="ct">
+		<property name="members">
+			<map>
+				<entry>
+					<key><value>티모</value></key>
+					<value>010-1111-2222</value>
+				</entry>
+				<entry>
+					<key><value>아리</value></key>
+					<value>010-1234-5678</value>
+				</entry>
+			</map>
+		</property>
+	</bean> -->
+	<bean class="test.CollectionTest" id="ct">
+		<property name="memo">
+			<list>
+				<value>티모</value>
+				<value>나미</value>
+			</list>
+		</property>
+		<property name="nameSet">
+			<list>
+				<value>바이</value>
+				<value>바이</value>
+			</list>
+		</property>
+		<property name="members">
+			<map>
+				<entry>
+					<key><value>티모</value></key>
+					<value>010-1111-2222</value>
+				</entry>
+				<entry>
+					<key><value>아리</value></key>
+					<value>010-1234-5678</value>
+				</entry>
+			</map>
+		</property>
+	</bean>
+	
+	<context:component-scan base-package="test"/>
+	<!-- <bean class="test.SmartWatch"/> -->
+	
+	
+	
+	
+</beans>
+
+
+
+
+

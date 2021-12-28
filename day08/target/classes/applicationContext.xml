@@ -29,10 +29,36 @@
 			</map>
 		</property>
 	</bean> -->
+	<bean class="test.CollectionTest" id="ct">
+		<property name="memo">
+			<list>
+				<value>티모</value>
+				<value>나미</value>
+			</list>
+		</property>
+		<property name="nameSet">
+			<list>
+				<value>바이</value>
+				<value>바이</value>
+			</list>
+		</property>
+		<property name="members">
+			<map>
+				<entry>
+					<key><value>티모</value></key>
+					<value>010-1111-2222</value>
+				</entry>
+				<entry>
+					<key><value>아리</value></key>
+					<value>010-1234-5678</value>
+				</entry>
+			</map>
+		</property>
+	</bean>
 	
 	<context:component-scan base-package="test"/>
 	<!-- <bean class="test.SmartWatch"/> -->
-	
+	<!-- 어노테이션의 경우 @Value를 통해 기본값을 넣어줄 수 있다 -->
 	
 	
 	

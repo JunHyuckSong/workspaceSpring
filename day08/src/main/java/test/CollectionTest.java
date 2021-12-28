@@ -5,7 +5,7 @@ import java.util.Map;
 import java.util.Set;
 
 public class CollectionTest {
-	/*private List<String> memo;
+	private List<String> memo;
 
 	public List<String> getMemo() {
 		return memo;
@@ -13,9 +13,9 @@ public class CollectionTest {
 
 	public void setMemo(List<String> memo) {
 		this.memo = memo;
-	} */
+	} 
 	
-	/*private Set<String> nameSet;
+	private Set<String> nameSet;
 
 	public Set<String> getNameSet() {
 		return nameSet;
@@ -23,7 +23,7 @@ public class CollectionTest {
 
 	public void setNameSet(Set<String> nameSet) {
 		this.nameSet = nameSet;
-	}*/
+	}
 	
 	private Map<String, String> members;
 
