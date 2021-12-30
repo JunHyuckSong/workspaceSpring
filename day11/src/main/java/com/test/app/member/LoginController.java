@@ -42,7 +42,7 @@ public class LoginController implements Controller{
 			//response.sendRedirect("login.jsp");
 			//return "login.jsp"; // login페이지에는 별다른 내용을 출력할 필요 없으므로
 			
-			mav.setViewName("redirct:login.jsp");
+			mav.setViewName("redirct:index.jsp");
 			
 			//return "login"; // 이 반환값이 DispatcherServlet에서 viewName이됨
 			//ViewResolver에서는 확장자가 없으면 .jsp를 자동추가해줌

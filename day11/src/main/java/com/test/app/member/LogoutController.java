@@ -17,7 +17,7 @@ public class LogoutController implements Controller{
 		session.invalidate();
 		
 		ModelAndView mav = new ModelAndView();
-		mav.setViewName("redirect:login.jsp");
+		mav.setViewName("redirect:index.jsp");
 		
 		//return "login"; // 이 반환값이 DispatcherServlet에서 viewName이됨
 		return mav;

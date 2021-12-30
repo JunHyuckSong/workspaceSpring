@@ -20,8 +20,11 @@ public class InsertBoardController implements Controller{
 		
 		BoardDAO dao = new BoardDAO();
 		dao.insertBoard(vo);
-				
-		return null;
+		
+		ModelAndView mav = new ModelAndView();
+		mav.setViewName("redirect:main.do");
+		
+		return mav;
 	}
 
 }
