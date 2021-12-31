@@ -3,16 +3,19 @@ package com.test.app.board.impl;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
 import com.test.app.board.BoardService;
 import com.test.app.board.BoardVO;
+import com.test.app.common.LogAdvice2;
 
 @Service("boardService")
 public class BoardServiceImpl implements BoardService {
 	@Autowired
 	private BoardDAO boardDAO;
+	
+	
+	
 	
 	@Override
 	public void insertBoard(BoardVO vo) {
@@ -27,20 +30,20 @@ public class BoardServiceImpl implements BoardService {
 
 	@Override
 	public void deleteBoard(BoardVO vo) {
-		// TODO Auto-generated method stub
-		
+		//la.printLog2(); 
+		boardDAO.deleteBoard(vo);
 	}
 
 	@Override
 	public BoardVO selectOne(BoardVO vo) {
-		// TODO Auto-generated method stub
-		return null;
+		//la.printLog2(); 
+		return boardDAO.selectOne(vo);
 	}
 
 	@Override
 	public List<BoardVO> selectAll(BoardVO vo) {
-		// TODO Auto-generated method stub
-		return null;
+		//la.printLog2(); 
+		return boardDAO.selectAll(vo);
 	}
 
 }
