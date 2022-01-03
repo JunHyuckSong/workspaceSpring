@@ -14,13 +14,30 @@
 	</bean>
 	<bean class="com.test.app.member.impl.MemberDAO" id="memberDAO"/> -->
 	
-	<bean id="la" class="com.test.app.common.LogAdvice2"/>
+	<bean id="la2" class="com.test.app.common.LogAdvice2"/>
+	<bean id="ara" class="com.test.app.common.AfterReturningAdvice"/>
+	<bean id="ata" class="com.test.app.common.AfterThrowingAdvice"/>
+	<bean id="aa" class="com.test.app.common.AfterAdvice"/>
+	<bean id="aa2" class="com.test.app.common.AroundAdvice"/>
+	<bean id="la" class="com.test.app.common.LogAdvice"/>
 	
 	<aop:config>
 		<aop:pointcut expression="execution(* com.test.app..*Impl.*(..))" id="aPointcut"/>
 		<aop:pointcut expression="execution(* com.test.app..*Impl.select*(..))" id="bPointcut"/>
-		<aop:aspect ref="la">
+		<aop:aspect ref="la2">
 			<aop:before pointcut-ref="bPointcut" method="printLog2"/>
+		</aop:aspect>
+		<aop:aspect ref="ara">
+			<aop:after-returning pointcut-ref="bPointcut" method="afterLog"/>
+		</aop:aspect>
+		<aop:aspect ref="ata">
+			<aop:after-throwing pointcut-ref="aPointcut" method="exceptionLog"/>
+		</aop:aspect>
+		<aop:aspect ref="aa">
+			<aop:after pointcut-ref="aPointcut" method="finallyLog"/>
+		</aop:aspect>
+		<aop:aspect ref="aa2">
+			<aop:around pointcut-ref="aPointcut" method="aroundLog"/>
 		</aop:aspect>
 	</aop:config>
 	
