@@ -28,6 +28,8 @@ public class IPhone implements Phone{
 	public void volumeUp() {
 		watch.volumeUp();
 	}
+	
+	// 어노테이션을 사용하는경우 getter, setter을 굳이 만들어주지 않아도 됨.
 	public Watch getWatch() {
 		return watch;
 	}
