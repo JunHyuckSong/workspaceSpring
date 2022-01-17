@@ -10,7 +10,7 @@ import com.test.app.board.BoardVO;
 import com.test.app.common.JDBCUtil;
 import com.test.app.member.MemberVO;
 
-@Repository("memberDAO") //일반적으로 이름(id)를 붙여준다. 
+//@Repository("memberDAO") //일반적으로 이름(id)를 붙여준다. 
 public class MemberDAO {
 	private Connection conn = null;
 	private PreparedStatement pstmt = null;
@@ -29,7 +29,7 @@ public class MemberDAO {
 	         if(rs.next()) {
 	            data=new MemberVO();
 	            data.setMid(rs.getString("mid"));
-	            data.setName(rs.getString("name"));
+	            data.setMname(rs.getString("mname"));
 	            data.setPassword(rs.getString("password"));
 	            data.setRole(rs.getString("role"));
 	            

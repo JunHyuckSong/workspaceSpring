@@ -9,22 +9,38 @@ import com.test.app.member.MemberVO;
 @Service("memberService")
 public class MemberServiceImpl implements MemberService{
 	@Autowired
-	private MemberDAO memberDAO;// dao를 사용하기 위한 "맴버변수" 선언
+	private MemberDAO2 memberDAO;// dao를 사용하기 위한 "맴버변수" 선언
 	
 	
-	public MemberDAO getMemberDAO() {
+	/*public MemberDAO getMemberDAO() {
 		return memberDAO;
 	}
 	public void setMemberDAO(MemberDAO memberDAO) {
 		this.memberDAO = memberDAO;
-	}
+	}*/
 
 
 
 	@Override
 	public MemberVO selectOne(MemberVO vo) {
 		// TODO Auto-generated method stub
-		return memberDAO.selectOne(vo);
+		try {
+			return memberDAO.selectOne(vo);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			return null;
+		}
+	}
+
+
+	@Override
+	public void insertMember(MemberVO vo) {
+		try {
+			memberDAO.insertMember(vo);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			System.out.println("insert 트랜잭션 오류발생");
+		}
 	}
 
 }

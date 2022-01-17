@@ -1,5 +1,7 @@
 package com.test.app.board;
 
+import java.util.List;
+
 import org.springframework.context.support.AbstractApplicationContext;
 import org.springframework.context.support.GenericXmlApplicationContext;
 
@@ -18,6 +20,11 @@ public class BoardClient {
 	      vo.setWriter("작성자");
 	      bs.insertBoard(vo); // c가 insert 비즈니스메서드를 수행
 	      // -> 실질적으로는 dao가 해당 로직을 수행함
+	      
+	      List<BoardVO> datas = bs.selectAll(vo);
+	      for (BoardVO v : datas) {
+			System.out.println("v");
+	      }
 	      
 	      factory.close();
 	   }

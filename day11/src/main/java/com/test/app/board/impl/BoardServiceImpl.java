@@ -12,7 +12,7 @@ import com.test.app.common.LogAdvice2;
 @Service("boardService")
 public class BoardServiceImpl implements BoardService {
 	@Autowired
-	private BoardDAO boardDAO;
+	private BoardDAO2 boardDAO;
 	
 	
 	
