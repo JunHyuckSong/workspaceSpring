@@ -3,6 +3,7 @@ package com.test.app.member.impl;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 
 import org.springframework.stereotype.Repository;
 
@@ -17,6 +18,7 @@ public class MemberDAO {
 	private ResultSet rs = null;
 	
 	private String member_selectOne = "select * from member22 where mid = ? and password = ?";
+	private String member_update = "update member22 set password=?,mname=? where mid = ?";
 	
 	public MemberVO selectOne(MemberVO vo) {
 		MemberVO data = null;
@@ -42,5 +44,23 @@ public class MemberDAO {
 	      return data;
 		
 	}
+	
+	public void updateMember(MemberVO vo) {
+		conn = JDBCUtil.connect();
+		try {
+			pstmt = conn.prepareStatement(member_update);
+			//update member22 set password=?,mname=? where mid = ?
+			pstmt.setString(1, vo.getPassword());
+			pstmt.setString(2, vo.getMname());
+			pstmt.setString(3, vo.getMid());
+			pstmt.executeUpdate();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			JDBCUtil.disconnect(pstmt, conn);
+		}
+	}
+	
 	
 }

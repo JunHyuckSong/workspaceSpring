@@ -2,6 +2,8 @@ package com.test.app.board;
 
 import java.util.Date;
 
+import org.springframework.web.multipart.MultipartFile;
+
 public class BoardVO {
 	private int bid;
 	private String title;
@@ -9,6 +11,10 @@ public class BoardVO {
 	private String content;
 	private Date bdate;
 	private int cnt;
+	private String searchCondition;
+	private String searchContent;
+	private MultipartFile file;
+	private String filepath;
 	
 	public int getBid() {
 		return bid;
@@ -45,6 +51,32 @@ public class BoardVO {
 	}
 	public void setCnt(int cnt) {
 		this.cnt = cnt;
+	}
+	
+	public String getSearchCondition() {
+		return searchCondition;
+	}
+	public void setSearchCondition(String searchCondition) {
+		this.searchCondition = searchCondition;
+	}
+	public String getSearchContent() {
+		return searchContent;
+	}
+	public void setSearchContent(String searchContent) {
+		this.searchContent = searchContent;
+	}
+	
+	public MultipartFile getFile() {
+		return file;
+	}
+	public void setFile(MultipartFile file) { // 일반대입연산자로 사용이 불가능하기 때문에 new를 일단 해줘야 한다?
+		this.file = file;	
+	}
+	public String getFilepath() {
+		return filepath;
+	}
+	public void setFilepath(String filepath) {
+		this.filepath = filepath;
 	}
 	@Override
 	public String toString() {

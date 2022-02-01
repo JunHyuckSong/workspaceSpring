@@ -4,7 +4,8 @@ create table board22(
    writer varchar(10),
    content varchar(50),
    bdate date default sysdate,
-   cnt int default 0
+   cnt int default 0,
+   filepath varchar(50)
 );
 
 select * from BOARD22

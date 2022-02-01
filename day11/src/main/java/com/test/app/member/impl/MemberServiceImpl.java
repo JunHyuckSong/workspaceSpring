@@ -3,6 +3,7 @@ package com.test.app.member.impl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.test.app.board.impl.BoardDAO2;
 import com.test.app.member.MemberService;
 import com.test.app.member.MemberVO;
 
@@ -10,7 +11,8 @@ import com.test.app.member.MemberVO;
 public class MemberServiceImpl implements MemberService{
 	@Autowired
 	private MemberDAO2 memberDAO;// dao를 사용하기 위한 "맴버변수" 선언
-	
+	@Autowired
+	private BoardDAO2 boardDAO;
 	
 	/*public MemberDAO getMemberDAO() {
 		return memberDAO;
@@ -34,13 +36,15 @@ public class MemberServiceImpl implements MemberService{
 
 
 	@Override
-	public void insertMember(MemberVO vo) {
-		try {
-			memberDAO.insertMember(vo);
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			System.out.println("insert 트랜잭션 오류발생");
-		}
+	public void insertMember(MemberVO vo) {	
+		memberDAO.insertMember(vo);
+	}
+
+
+	@Override
+	public void updateMember(MemberVO vo) {
+		memberDAO.updateMember(vo);
+		
 	}
 
 }

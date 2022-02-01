@@ -1,32 +1,35 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="EUC-KR">
+<meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
 <body>
-	<h1>±Û ÀÛ¼º ÆäÀÌÁö</h1>
-	<a href="main.jsp">¸ÞÀÎ ÆäÀÌÁö·Î ÀÌµ¿ÇÏ±â</a>
+	<h1>ê¸€ ìž‘ì„± íŽ˜ì´ì§€</h1>
+	<a href="main.do">ë©”ì¸ íŽ˜ì´ì§€ë¡œ ì´ë™í•˜ê¸°</a>
 	<hr>
-	<form action="insertBoard_C.jsp" method="post">
+	<form action="insertBoard.do" method="post" enctype="multipart/form-data">
 		<table border="1">
 			<tr>
-				<td>±Û Á¦¸ñ</td>
+				<td>ê¸€ ì œëª©</td>
 				<td><input type="text" name="title" ></td>
 			</tr>
 			<tr>
-				<td>ÀÛ¼ºÀÚ</td>
-				<td><input type="text" name="writer"></td>
+				<td>ìž‘ì„±ìž</td>
+				<td><input type="text" name="writer" value="${memData.mname}" readonly></td>
 			</tr>
 			<tr>
-				<td>±Û ³»¿ë</td>
+				<td>ê¸€ ë‚´ìš©</td>
 				<td><input type="text" name="content"></td>
 			</tr>
-			
 			<tr>
-				<td colspan="2"><input type="submit" value="±Û µî·ÏÇÏ±â"></td>
+				<td>íŒŒì¼ì—…ë¡œë“œ</td>
+				<td><input type="file" name="file"></td>
+			</tr>
+			<tr>
+				<td colspan="2"><input type="submit" value="ê¸€ ë“±ë¡í•˜ê¸°"></td>
 			</tr>
 		</table>
 	</form>

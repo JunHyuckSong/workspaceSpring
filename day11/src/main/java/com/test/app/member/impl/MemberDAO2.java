@@ -21,17 +21,23 @@ public class MemberDAO2 {
 	
 	private String member_selectOne = "select * from member22 where mid = ? and password = ?";
 	private String member_insert = "insert into member22 values(?,?,?,?)";
+	private String member_update = "update member22 set password=?,mname=? where mid = ?";
 	
 	public MemberVO selectOne(MemberVO vo) throws Exception{
-		System.out.println("selectOne");
+		System.out.println("DAO2 : selectOne ½ÇÇà");
 		Object[] obj = {vo.getMid(),vo.getPassword()};
 		return jdbcTemplate.queryForObject(member_selectOne,obj,new MemberRowMapper());
 			
 	}
 	
-	public void insertMember(MemberVO vo) throws Exception{
+	public void insertMember(MemberVO vo){
 		System.out.println("insert");
 		jdbcTemplate.update(member_insert,vo.getMid(),vo.getPassword(),vo.getMname(),vo.getRole());
+	}
+	
+	public void updateMember(MemberVO vo) {
+		System.out.println("update");
+		jdbcTemplate.update(member_update, vo.getPassword(),vo.getMname(),vo.getMid());
 	}
 	
 }

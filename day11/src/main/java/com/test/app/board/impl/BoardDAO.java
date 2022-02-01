@@ -22,6 +22,9 @@ public class BoardDAO {
 	private String board_delete = "delete from board22 where bid=?";
 	private String board_selectOne = "select * from board22 where bid=?";
 	private String board_selectAll = "select * from board22 order by bid desc";
+	private String selectWriter = "select * from board22 where writer like '%'||?||'%' order by bid desc";
+	private String selectTitle = "select * from board22 where title like '%'||?||'%' order by bid desc";
+	
 	
 	public void insertBoard(BoardVO vo) {
 		conn=JDBCUtil.connect();
@@ -93,7 +96,15 @@ public class BoardDAO {
 		ArrayList<BoardVO> datas=new ArrayList<BoardVO>();
 	      conn=JDBCUtil.connect();
 	      try {
-	         pstmt=conn.prepareStatement(board_selectAll);
+	    	  if(vo.getSearchCondition().equals("title")) {
+	    		  // 제목으로 검색하는 로직
+	    		  pstmt=conn.prepareStatement(selectTitle);
+	    	  }
+	    	  else {
+	    		  pstmt=conn.prepareStatement(selectWriter);
+	    	  }
+	    	  pstmt.setString(1, vo.getSearchContent());
+	         //pstmt=conn.prepareStatement(board_selectAll);
 	         rs=pstmt.executeQuery();
 	         while(rs.next()) {
 	            BoardVO data=new BoardVO();

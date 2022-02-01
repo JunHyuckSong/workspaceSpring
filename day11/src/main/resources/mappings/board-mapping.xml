@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="BoardDAO">
+	
+	<resultMap type="board" id="boardResult">
+      <id property="bid" column="BID" />
+      <result property="title" column="TITLE" />
+      <result property="writer" column="WRITER" />
+      <result property="content" column="CONTENT" />
+      <result property="bdate" column="BDATE" />
+      <result property="cnt" column="CNT" />
+      <result property="filepath" column="FILEPATH" />
+   </resultMap>
+
+	
+	<insert id="insertBoard">
+		<![CDATA[
+			INSERT INTO BOARD22(BID,TITLE,WRITER,CONTENT,FILEPATE) VALUES((SELECT NVL(MAX(BID),0) FROM BOARD22)+1,#{title},#{writer},#{content},#{filepath})
+		]]>
+	</insert>
+	
+	<select id="selectOne" resultMap="boardResult">
+		<![CDATA[
+			SELECT * FROM BOARD22 WHERE BID=#{bid} 
+		]]>
+	</select>
+	
+	<!-- <select id="selectAll" resultMap="boardResult">
+		<![CDATA[
+			 SELECT * FROM BOARD22 WHERE WRITER LIKE '%'||#{searchContent}||'%' ORDER BY BID DESC
+		]]>
+	</select> -->
+	
+	<select id="selectAll" parameterType="board" resultMap="boardResult">
+		SELECT * FROM BOARD WHERE 1=1
+		<if test="searchCondition == 'title'">
+			AND TITLE LIKE '%'||#{searchContent}||'%'
+		</if>
+		<if test="searchCondition == 'writer'">
+			AND WRITER LIKE '%'||#{searchContent}||'%'
+		</if> 
+		ORDER BY BID DESC
+	</select>
+	
+	<!-- <select id="selectT" parameterType="board" resultMap="boardResult">
+      <![CDATA[
+         SELECT * FROM BOARD WHERE TITLE LIKE '%'||#{searchContent}||'%' ORDER BY BID DESC
+      ]]>
+    </select>
+   
+    <select id="selectW" parameterType="board" resultMap="boardResult">
+      <![CDATA[
+         SELECT * FROM BOARD WHERE WRITER LIKE '%'||#{searchContent}||'%' ORDER BY BID DESC
+      ]]>
+    </select> -->
+	
+	<update id="updateBoard">
+		<![CDATA[
+			UPDATE BOARD22 SET TITLE=#{title},CONTENT=#{content} where BID=#{bid} 
+		]]>
+	</update>
+	
+	<delete id="deleteBoard">
+		<![CDATA[
+			DELETE FROM BOARD22 WHERE BID=#{bid}
+		]]>
+	</delete>
+	
+</mapper>

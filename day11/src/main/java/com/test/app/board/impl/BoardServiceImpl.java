@@ -12,7 +12,7 @@ import com.test.app.common.LogAdvice2;
 @Service("boardService")
 public class BoardServiceImpl implements BoardService {
 	@Autowired
-	private BoardDAO2 boardDAO;
+	private BoardDAO3 boardDAO;
 	
 	
 	
@@ -43,6 +43,7 @@ public class BoardServiceImpl implements BoardService {
 	@Override
 	public List<BoardVO> selectAll(BoardVO vo) {
 		//la.printLog2(); 
+		System.out.println("검색로직 추가");
 		return boardDAO.selectAll(vo);
 	}
 
